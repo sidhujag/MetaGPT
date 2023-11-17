@@ -19,7 +19,6 @@
 </p>
 
 <p align="center">
-   <a href="https://airtable.com/appInfdG0eJ9J4NNL/shrEd9DrwVE3jX6oz"><img src="https://img.shields.io/badge/AgentStore-Waitlist-ffc107?logoColor=white" alt="AgentStore Waitlist"></a>
    <a href="https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/geekan/MetaGPT"><img src="https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode" alt="Open in Dev Containers"></a>
    <a href="https://codespaces.new/geekan/MetaGPT"><img src="https://img.shields.io/badge/Github_Codespace-Open-blue?logo=github" alt="Open in GitHub Codespaces"></a>
    <a href="https://huggingface.co/spaces/deepwisdom/MetaGPT" target="_blank"><img alt="Hugging Face" src="https://img.shields.io/badge/%F0%9F%A4%97%20-Hugging%20Face-blue?color=blue&logoColor=white" /></a>
@@ -60,7 +59,7 @@ It costs approximately **$0.2** (in GPT-4 API fees) to generate one example with
 ### Traditional Installation
 
 ```bash
-# Step 1: Ensure that NPM is installed on your system. Then install mermaid-js. (If you don't have npm in your computer, please go to the Node.js offical website to install Node.js https://nodejs.org/ and then you will have npm tool in your computer.)
+# Step 1: Ensure that NPM is installed on your system. Then install mermaid-js. (If you don't have npm in your computer, please go to the Node.js official website to install Node.js https://nodejs.org/ and then you will have npm tool in your computer.)
 npm --version
 sudo npm install -g @mermaid-js/mermaid-cli
 
@@ -127,7 +126,7 @@ pip install -e.
 
     - **Use your own Browsers**
 
-    pyppeteer alow you use installed browsers,  please set the following envirment
+    pyppeteer allows you use installed browsers,  please set the following envirment
     
     ```bash
     export PUPPETEER_EXECUTABLE_PATH = /path/to/your/chromium or edge or chrome
@@ -189,8 +188,8 @@ $ python startup.py "Write a cli snake game"
 The command `docker run ...` do the following things:
 
 - Run in privileged mode to have permission to run the browser
-- Map host directory `/opt/metagpt/config` to container directory `/app/metagpt/config`
-- Map host directory `/opt/metagpt/workspace` to container directory `/app/metagpt/workspace`
+- Map host configure file `/opt/metagpt/config/key.yaml` to container `/app/metagpt/config/key.yaml`
+- Map host directory `/opt/metagpt/workspace` to container `/app/metagpt/workspace`
 - Execute the demo command `python startup.py "Write a cli snake game"`
 
 ### Build image by yourself
@@ -270,12 +269,12 @@ NOTES
 ### Code walkthrough
 
 ```python
-from metagpt.software_company import SoftwareCompany
+from metagpt.team import Team
 from metagpt.roles import ProjectManager, ProductManager, Architect, Engineer
 
 async def startup(idea: str, investment: float = 3.0, n_round: int = 5):
     """Run a startup. Be a boss."""
-    company = SoftwareCompany()
+    company = Team()
     company.hire([ProductManager(), Architect(), ProjectManager(), Engineer()])
     company.invest(investment)
     company.start_project(idea)
@@ -299,8 +298,8 @@ For now, cite the [Arxiv paper](https://arxiv.org/abs/2308.00352):
 
 ```bibtex
 @misc{hong2023metagpt,
-      title={MetaGPT: Meta Programming for Multi-Agent Collaborative Framework},
-      author={Sirui Hong and Xiawu Zheng and Jonathan Chen and Yuheng Cheng and Jinlin Wang and Ceyao Zhang and Zili Wang and Steven Ka Shing Yau and Zijuan Lin and Liyang Zhou and Chenyu Ran and Lingfeng Xiao and Chenglin Wu},
+      title={MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework}, 
+      author={Sirui Hong and Mingchen Zhuge and Jonathan Chen and Xiawu Zheng and Yuheng Cheng and Ceyao Zhang and Jinlin Wang and Zili Wang and Steven Ka Shing Yau and Zijuan Lin and Liyang Zhou and Chenyu Ran and Lingfeng Xiao and Chenglin Wu and Jürgen Schmidhuber},
       year={2023},
       eprint={2308.00352},
       archivePrefix={arXiv},

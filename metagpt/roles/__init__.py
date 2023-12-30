@@ -15,7 +15,7 @@ from metagpt.roles.group import Group
 from metagpt.roles.searcher import Searcher
 from metagpt.roles.engineer import Engineer
 from metagpt.roles.qa_engineer import QaEngineer
-from metagpt.roles.tutorial_assistant import TutorialAssistant
+from metagpt.roles.searcher import Searcher
 from metagpt.roles.sales import Sales
 from metagpt.roles.researcher import Researcher
 from metagpt.roles.customer_service import CustomerService

@@ -6,19 +6,9 @@ import pytest
 
 from metagpt.provider.zhipuai_api import ZhiPuAIGPTAPI
 
+default_resp = {"code": 200, "data": {"choices": [{"role": "assistant", "content": "I'm chatglm-turbo"}]}}
 
-default_resp = {
-    "code": 200,
-    "data": {
-        "choices": [
-            {"role": "assistant", "content": "I'm chatglm-turbo"}
-        ]
-    }
-}
-
-messages = [
-    {"role": "user", "content": "who are you"}
-]
+messages = [{"role": "user", "content": "who are you"}]
 
 
 def mock_llm_ask(self, messages: list[dict]) -> dict:
@@ -45,3 +35,13 @@ async def test_zhipuai_acompletion(mocker):
 
     assert resp["code"] == 200
     assert "chatglm-turbo" in resp["data"]["choices"][0]["content"]
+
+
+def test_zhipuai_proxy(mocker):
+    import openai
+
+    from metagpt.config import CONFIG
+
+    CONFIG.openai_proxy = "http://127.0.0.1:8080"
+    _ = ZhiPuAIGPTAPI()
+    assert openai.proxy == CONFIG.openai_proxy
